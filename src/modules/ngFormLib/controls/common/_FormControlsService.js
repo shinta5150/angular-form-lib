@@ -55,26 +55,32 @@
     self.defaults = {
       idPrefix: 'fpFld',
       templates: {
-        formCheckbox: {
-          default:           'ngFormLib/controls/formCheckbox/template/FormCheckboxTemplate.html'
-        },
-        formDate: {
-          default:           'ngFormLib/controls/formDate/template/FormDateInputTemplate.html'
-        },
-        formInput: {              // This has to be a string as we need to dynamically replace the #type# variable BEFORE the template is turned into a DOM element
-          default:           '<div class="form-group"><label class="control-label"></label><div class="control-row"><input #type# class="form-control"><span ng-transclude></span></div></div>'
-        },
-        formRadioButton: {
-          default:           'ngFormLib/controls/formRadioButton/template/FormRadioButtonTemplate.html'
-        },
-        formSelect: {
-          default:           'ngFormLib/controls/formSelect/template/FormSelectTemplate.html'
-        },
-        requiredMarker: {
-          default:           'ngFormLib/controls/requiredMarker/template/RequiredMarkerTemplate.html'
-        }
+          formCheckbox: {},
+          //  default:           'ngFormLib/controls/formCheckbox/template/FormCheckboxTemplate.html'
+
+          formDate: {},
+          //  default:           'ngFormLib/controls/formDate/template/FormDateInputTemplate.html'
+          //},
+          formInput: {},              // This has to be a string as we need to dynamically replace the #type# variable BEFORE the template is turned into a DOM element
+          //  default:           '<div class="form-group"><label class="control-label"></label><div class="control-row"><input #type# class="form-control"><span ng-transclude></span></div></div>'
+          //},
+          formRadioButton: {},
+          //  default:           'ngFormLib/controls/formRadioButton/template/FormRadioButtonTemplate.html'
+          //},
+          formSelect: {},
+          //  default:           'ngFormLib/controls/formSelect/template/FormSelectTemplate.html'
+          //},
+          requiredMarker: {}
+          //  default:           'ngFormLib/controls/requiredMarker/template/RequiredMarkerTemplate.html'
+          //}
       }
     };
+    //workaround for evil IE using default as a keyword
+    self.defaults.templates.formCheckbox['default'] = 'ngFormLib/controls/formCheckbox/template/FormCheckboxTemplate.html';
+    self.defaults.templates.formDate['default'] = 'ngFormLib/controls/formDate/template/FormDateInputTemplate.html';
+    self.defaults.templates.formRadioButton['default'] = 'ngFormLib/controls/formRadioButton/template/FormRadioButtonTemplate.html';
+    self.defaults.templates.formSelect['default'] = 'ngFormLib/controls/formSelect/template/FormSelectTemplate.html';
+    self.defaults.templates.requiredMarker['default'] = 'ngFormLib/controls/requiredMarker/template/RequiredMarkerTemplate.html';
 
     this.$get = ['StringUtil', '$interpolate', function(StringUtil) {
 
